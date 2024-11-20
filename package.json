@@ -1,0 +1,20 @@
+{
+  "name": "@ticle/contracts",
+  "version": "0.1.0",
+  "private": "true",
+  "scripts": {
+    "build:setup": "rustup target add wasm32-unknown-unknown",
+    "build:core": "cd ticle_core && cargo near build",
+    "build:token": "cd ticle_token && cargo near build",
+    "build": "run-s build:*",
+    "test:core": "cd ticle_core && cargo test",
+    "test:token": "cd ticle_token && cargo test",
+    "test": "run-s build test:*",
+    "clean": "rm -rf target"
+  },
+  "devDependencies": {
+    "cargo-near": "^0.6.2",
+    "near-cli-rs": "^0.15.1",
+    "npm-run-all": "^4.1.5"
+  }
+}
